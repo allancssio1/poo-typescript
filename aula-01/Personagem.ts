@@ -49,6 +49,7 @@ while (0 < 9) {
       console.log(personSansa);
       break;
     default:
+      console.log(option);
       break;
   }
 }
