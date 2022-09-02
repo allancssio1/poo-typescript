@@ -21,23 +21,23 @@ while (option != 9 || personSansa.isAlive()) {
   switch (option) {
     case 1:
       personSansa.treinarAtaque();
-      personSansa.showStatus();
+      console.log(personSansa.showStatus());
       break;
     case 2:
       personSansa.treinarDefesa();
-      personSansa.showStatus();
+      console.log(personSansa.showStatus());
       break;
     case 3:
       personSansa.descansar();
-      personSansa.showStatus();
+      console.log(personSansa.showStatus());
       if (personSansa.energia >= 100) personSansa.energia = 100;
       break;
     case 4:
       personSansa.batalhar();
-      personSansa.showStatus();
+      console.log(personSansa.showStatus());
       break;
     case 5:
-      personSansa.showStatus();
+      console.log(personSansa.showStatus());
       break;
     default:
       break;

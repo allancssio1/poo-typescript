@@ -6,13 +6,14 @@ export default class Personagem {
     public ataque: number,
     public defesa: number,
   ) {}
-
-  showStatus(): void {
-    console.log("nome =>", this.nome);
-    console.log("ataque =>", this.ataque.toFixed(1));
-    console.log("defesa =>", this.defesa.toFixed(1));
-    console.log("energia =>", this.energia.toFixed(1));
-    console.log("vida =>", this.vida.toFixed(1));
+  // TODA VEZ QUE PENSAR EM LER DADOS DE UMA CLASSE -> USAR PARAMETROS
+  // TODA VEZ QUE PENSAR EM IMPRIMIR A CLASSE -> USAR RETURN
+  showStatus(): string {
+    return `nome: ${this.nome} \n ataque: ${this.ataque.toFixed(
+      1,
+    )} \n defesa: ${this.defesa.toFixed(1)} \n energia: ${this.energia.toFixed(
+      1,
+    )} \n vida: ${this.vida.toFixed(1)}`;
   }
 
   treinarAtaque(): void {
@@ -29,13 +30,13 @@ export default class Personagem {
     this.energia += Math.random() * 10;
   }
 
-  batalhar(): void {
+  batalhar(): number {
     this.energia += Math.random() * 100;
+    return this.energia;
   }
 
   isAlive(): boolean {
     if (this.energia <= 0) {
-      console.log("Ops! Você morreu!");
       return true;
     } else {
       return false;
