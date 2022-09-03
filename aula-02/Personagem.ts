@@ -26,8 +26,9 @@ export default class Personagem {
     this.energia -= Math.random() * 10;
   }
 
-  descansar(): void {
-    this.energia += Math.random() * 10;
+  descansar(tempo: number): void {
+    this.energia += tempo * (Math.random() * 10);
+    this.energia > 100 && (this.energia = 100);
   }
 
   batalhar(): number {
@@ -36,10 +37,6 @@ export default class Personagem {
   }
 
   isAlive(): boolean {
-    if (this.energia <= 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return this.energia <= 0;
   }
 }

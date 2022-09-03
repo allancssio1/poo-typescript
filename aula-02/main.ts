@@ -28,7 +28,8 @@ while (option != 9 || personSansa.isAlive()) {
       console.log(personSansa.showStatus());
       break;
     case 3:
-      personSansa.descansar();
+      const tempo: number = +teclado("Digite o tempo de desanso");
+      personSansa.descansar(tempo);
       console.log(personSansa.showStatus());
       if (personSansa.energia >= 100) personSansa.energia = 100;
       break;
