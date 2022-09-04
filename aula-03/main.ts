@@ -1,13 +1,13 @@
 import prompt from "prompt-sync";
 import Personagem from "./Personagem";
 
-let personSansa: Personagem = new Personagem("Sansa Stark", 30, 50, 100, 20);
+let person: Personagem = new Personagem("Sansa Stark", 30, 50, 100, 20);
 let teclado = prompt();
 
 let option: number = 0;
 
-while (option != 9 || personSansa.isAlive()) {
-  console.log(">===== Personagem ====<");
+while (option != 9 || person.isAlive()) {
+  console.log(`>===== Personagem ${person.nome}====<`);
   console.log("| 1. Treinar ataque    |");
   console.log("| 2. Treinar defesa    |");
   console.log("| 3. Descansar         |");
@@ -20,25 +20,24 @@ while (option != 9 || personSansa.isAlive()) {
 
   switch (option) {
     case 1:
-      personSansa.treinarAtaque();
-      console.log(personSansa.showStatus());
+      person.treinarAtaque();
+      console.log(person.showStatus());
       break;
     case 2:
-      personSansa.treinarDefesa();
-      console.log(personSansa.showStatus());
+      person.treinarDefesa();
+      console.log(person.showStatus());
       break;
     case 3:
       const tempo: number = +teclado("Digite o tempo de desanso");
-      personSansa.descansar(tempo);
-      console.log(personSansa.showStatus());
-      if (personSansa.energia >= 100) personSansa.energia = 100;
+      person.descansar(tempo);
+      console.log(person.showStatus());
       break;
     case 4:
-      personSansa.batalhar();
-      console.log(personSansa.showStatus());
+      person.batalhar();
+      console.log(person.showStatus());
       break;
     case 5:
-      console.log(personSansa.showStatus());
+      console.log(person.showStatus());
       break;
     default:
       break;

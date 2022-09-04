@@ -1,42 +1,63 @@
 export default class Personagem {
   constructor(
-    public nome: string,
-    public energia: number,
-    public vida: number,
-    public ataque: number,
-    public defesa: number,
+    private _nome: string,
+    private _energia: number,
+    private vida: number,
+    private ataque: number,
+    private defesa: number,
   ) {}
-  // TODA VEZ QUE PENSAR EM LER DADOS DE UMA CLASSE -> USAR PARAMETROS
-  // TODA VEZ QUE PENSAR EM IMPRIMIR A CLASSE -> USAR RETURN
-  showStatus(): string {
-    return `nome: ${this.nome} \n ataque: ${this.ataque.toFixed(
+
+  // public PODE SER USADA EM QUALQUER OUTRO ARQUIVO;
+  // private SÓ PODER SER USADA NESTA CLASS;
+  // protected SÓ PODE SER USADO PELA CLASS PROPRIA E A QUE EXTENDER A MESMA
+
+  // POR CONVENÇÃO, USASSE _ NA FRENTE DAS PROPRIEDADES PUBLICAS E USASSE O MESMO NOME
+  // DO PARAMETRO PARA GERAR O GET E O SET DESSA PROPRIEDADE
+  public get nome(): string {
+    return this._nome;
+  }
+
+  public set nome(nome: string) {
+    this._nome = nome;
+  }
+
+  public set energia(energia: number) {
+    this._energia = energia;
+  }
+
+  public showStatus(): string {
+    return `_nome: ${this._nome} \n ataque: ${this.ataque.toFixed(
       1,
     )} \n defesa: ${this.defesa.toFixed(1)} \n energia: ${this.energia.toFixed(
       1,
     )} \n vida: ${this.vida.toFixed(1)}`;
   }
 
-  treinarAtaque(): void {
-    this.ataque += Math.random() * 7;
-    this.energia -= Math.random() * 10;
+  public treinarAtaque(): void {
+    this.ataque += this.randon(7);
+    this.energia -= this.randon(10);
   }
 
-  treinarDefesa(): void {
-    this.defesa += Math.random() * 5;
-    this.energia -= Math.random() * 10;
+  public treinarDefesa(): void {
+    this.defesa += this.randon(5);
+    this.energia -= this.randon(10);
   }
 
-  descansar(tempo: number): void {
-    this.energia += tempo * (Math.random() * 10);
-    this.energia > 100 && (this.energia = 100);
+  public descansar(tempo: number): void {
+    this.energia += tempo * this.randon(10);
+    if (this.energia >= 100) this.energia = 100;
   }
 
-  batalhar(): number {
-    this.energia += Math.random() * 100;
+  public batalhar(): number {
+    this.energia += this.randon(100);
     return this.energia;
   }
 
-  isAlive(): boolean {
+  public isAlive(): boolean {
     return this.energia <= 0;
+  }
+
+  private randon(fator: number): number {
+    return Math.random() * fator;
   }
 }
