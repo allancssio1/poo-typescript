@@ -2,7 +2,7 @@ export class Util {
   /**
    * randomizar
    */
-  public static randomizar(inicial: number): number {
-    return inicial + Math.random();
+  public static initial(inicial: number, bonus: number): number {
+    return bonus + inicial;
   }
 }

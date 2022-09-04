@@ -1,10 +1,10 @@
 import Person from "./Personagem";
 import { Util } from "./Util";
 
-class Warrior extends Person {
+class Wizard extends Person {
   constructor(nome: string) {
     super(nome);
-    this._força = Util.initial(1, 5);
-    this._agilidade = Util.initial(1, 3);
+    this._inteligencia = Util.initial(1, 5);
+    this._sabedoria = Util.initial(1, 3);
   }
 }
