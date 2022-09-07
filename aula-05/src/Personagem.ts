@@ -1,6 +1,12 @@
-import { Util } from "./Util";
+import { Util } from "./utils/Util";
 
-export default class Person {
+/**
+ * class abstrata não pode ser instanciada. e não é obrigatório posuir metodos abstratos.
+ * mas metodos abstratos so podem ser usados em classe abstratas.
+ * As classes abstratas podem ser extendidas.
+ */
+
+export default abstract class Person {
   protected _nome: string;
   protected _armadura: number;
   protected _vidaMaxima: number;
@@ -24,4 +30,6 @@ export default class Person {
     this._espirito = Util.initial(1, 0);
     this._habilidade = Util.initial(1, 0);
   }
+  public abstract atacar(): string;
+  public abstract defender(atacante: Person): number;
 }

@@ -1,10 +1,18 @@
 import Person from "./Personagem";
-import { Util } from "./Util";
+import { Util } from "./utils/Util";
 
 export class Wizard extends Person {
   constructor(nome: string) {
     super(nome);
     this._inteligencia = Util.initial(1, 5);
     this._sabedoria = Util.initial(1, 3);
+  }
+
+  public atacar(): string {
+    return "Ataque do Wizard";
+  }
+
+  public defender(atacante: Person): number {
+    return 1;
   }
 }
