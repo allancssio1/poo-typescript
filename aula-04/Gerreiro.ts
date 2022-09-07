@@ -1,7 +1,7 @@
 import Person from "./Personagem";
 import { Util } from "./Util";
 
-class Warrior extends Person {
+export class Warrior extends Person {
   constructor(nome: string) {
     super(nome);
     this._força = Util.initial(1, 5);
